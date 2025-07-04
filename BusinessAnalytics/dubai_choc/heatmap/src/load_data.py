@@ -1,13 +1,18 @@
-import pandas as pd
+"""Utilities for loading Talkwalker Excel exports."""
+
 from pathlib import Path
 
+import pandas as pd
+
 def load_excel_data(filename: str) -> pd.DataFrame:
+    """Load an Excel file from the repository's data directory."""
+
     # Absoluten Pfad zur Datei berechnen (ausgehend vom aktuellen Skriptverzeichnis)
     data_dir = Path(__file__).resolve().parent.parent / "data"
     file_path = data_dir / filename
 
     # Datei laden
-    df = pd.read_excel(file_path)
+    df = pd.read_excel(file_path, engine="openpyxl")
 
     # Relevante Spalten extrahieren
     columns_needed = [
@@ -18,6 +23,7 @@ def load_excel_data(filename: str) -> pd.DataFrame:
         "extra_source_attributes.world_data.city",
         "extra_source_attributes.world_data.longitude",
         "extra_source_attributes.world_data.latitude",
+        "published",
         "engagement",
         "reach"
     ]
