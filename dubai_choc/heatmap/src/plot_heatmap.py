@@ -18,12 +18,16 @@ def plot_heatmap(
     output_video: Optional[str] = None,
 ) -> None:
     """Generate an animated heatmap and save it as HTML and optionally as video."""
-
+    
+    z_min = df["engagement"].min()
+    z_max = df["engagement"].max()
+    
     fig = px.density_mapbox(
         df,
         lat=LAT_COL,
         lon=LONG_COL,
         z="engagement",
+        range_color=(z_min, z_max),
         radius=50,
         center=dict(lat=25.2048, lon=55.2708),
         zoom=1.5,
