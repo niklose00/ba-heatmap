@@ -24,7 +24,7 @@ def plot_heatmap(
         lat=LAT_COL,
         lon=LONG_COL,
         z="engagement",
-        radius=10,
+        radius=50,
         center=dict(lat=25.2048, lon=55.2708),
         zoom=1.5,
         mapbox_style="carto-positron",
