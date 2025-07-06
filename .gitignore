@@ -1,3 +1,5 @@
 __pycache__/
 *.pyc
 BusinessAnalytics/dubai_choc/heatmap/output/
+venv/
+.venv/
